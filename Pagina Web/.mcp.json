@@ -1,0 +1,4 @@
+{
+  "$comment": "Servidores MCP del proyecto. Vacío por ahora. Candidatos a futuro: Stripe MCP (consultar pagos/productos), Sanity/CMS MCP cuando migremos el catálogo. Agregar bajo la clave mcpServers.",
+  "mcpServers": {}
+}
