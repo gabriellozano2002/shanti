@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Instagram, MessageCircle } from "lucide-react";
-import { ContactForm } from "@/components/contact/ContactForm";
 import { CONTACT } from "@/lib/constants";
 import { whatsappUrl } from "@/lib/utils";
 
@@ -38,32 +37,28 @@ export default function ContactoPage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-8 lg:grid-cols-2">
-        <div className="space-y-3">
-          {canales.map(({ icon: Icon, label, value, href }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-colors hover:bg-accent"
-            >
-              <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-brand-lavanda/30 text-brand-gold">
-                <Icon className="h-6 w-6" />
+      <div className="mx-auto mt-12 max-w-md space-y-3">
+        {canales.map(({ icon: Icon, label, value, href }) => (
+          <a
+            key={label}
+            href={href}
+            target={href.startsWith("http") ? "_blank" : undefined}
+            rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition-colors hover:bg-accent"
+          >
+            <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-brand-lavanda/30 text-brand-gold">
+              <Icon className="h-6 w-6" />
+            </span>
+            <span>
+              <span className="block text-sm font-medium text-brand-ink">
+                {label}
               </span>
-              <span>
-                <span className="block text-sm font-medium text-brand-ink">
-                  {label}
-                </span>
-                <span className="block text-sm text-muted-foreground">
-                  {value}
-                </span>
+              <span className="block text-sm text-muted-foreground">
+                {value}
               </span>
-            </a>
-          ))}
-        </div>
-
-        <ContactForm />
+            </span>
+          </a>
+        ))}
       </div>
     </div>
   );

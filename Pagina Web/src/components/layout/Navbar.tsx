@@ -27,9 +27,9 @@ export function Navbar() {
           <Image
             src="/images/brand/logo.png"
             alt={SITE.name}
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
+            width={48}
+            height={48}
+            className="h-12 w-12 object-contain"
             priority
           />
           <span className="font-serif text-xl font-semibold tracking-wide text-brand-ink">
