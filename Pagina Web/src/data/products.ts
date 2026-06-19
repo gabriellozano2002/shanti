@@ -3,7 +3,7 @@
  * Hoy es estático; mañana estos getters pueden leer de un CMS (Sanity) o DB
  * (Prisma) sin tocar la UI — por eso son `async`. Ver docs/ARCHITECTURE.md.
  *
- * Precios en CENTAVOS. ⚠️ TODO: confirmar precios y tamaños reales con el cliente.
+ * Precios en CENTAVOS. Confirmados con lista-precios-shanti.md (presentación 10 ml).
  */
 import type { Collection, CollectionId, Product } from "@/types";
 
@@ -42,7 +42,7 @@ const products: Product[] = [
     shortDescription: "Calma profunda y descanso reparador.",
     description:
       "La lavanda es el aroma de la serenidad. Su perfume floral y herbáceo relaja el cuerpo y aquieta la mente, ideal para preparar el descanso y soltar la tensión del día. Un imprescindible de cualquier ritual de calma.",
-    price: 18900,
+    price: 38000,
     currency: "MXN",
     images: ["/images/products/esencia-lavanda-calma.png"],
     collection: "calma",
@@ -66,7 +66,7 @@ const products: Product[] = [
     shortDescription: "Equilibrio y ánimo luminoso.",
     description:
       "La bergamota combina la frescura cítrica con una calidez floral única. Eleva el ánimo a la vez que serena la mente, perfecta para despejar el ambiente y reencontrar el equilibrio en medio del ajetreo.",
-    price: 19900,
+    price: 40000,
     currency: "MXN",
     images: ["/images/products/esencia-bergamota-calma.png"],
     collection: "calma",
@@ -89,7 +89,7 @@ const products: Product[] = [
     shortDescription: "Serenidad suave para cuerpo y mente.",
     description:
       "Dulce, herbal y reconfortante, la manzanilla es un abrazo en forma de aroma. Suaviza la irritabilidad y acompaña los momentos en que el cuerpo pide pausa y ternura.",
-    price: 21900,
+    price: 120000,
     currency: "MXN",
     images: ["/images/products/esencia-manzanilla-calma.png"],
     collection: "calma",
