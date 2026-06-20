@@ -1,40 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useCartStore } from "@/store/cart-store";
-import { CheckoutButton } from "@/components/cart/CheckoutButton";
-import { buttonVariants } from "@/components/ui/button";
-import { cn, formatPrice } from "@/lib/utils";
+import { formatPrice } from "@/lib/utils";
 
-/** Resumen de la orden en /checkout antes de redirigir a Stripe. */
+/**
+ * Desglose de la orden (productos + subtotal + envío + total) en /checkout.
+ * Solo presenta datos del store; el botón de pago vive en CheckoutForm.
+ * Se renderiza dentro de CheckoutForm, que ya garantiza el montaje del store.
+ */
 export function CheckoutSummary() {
-  const [mounted, setMounted] = useState(false);
   const items = useCartStore((s) => s.items);
   const subtotal = useCartStore((s) => s.getSubtotal());
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) {
-    return <p className="py-16 text-center text-muted-foreground">Cargando…</p>;
-  }
-
-  if (items.length === 0) {
-    return (
-      <div className="py-16 text-center">
-        <p className="text-lg text-brand-ink">No hay nada que pagar todavía.</p>
-        <Link
-          href="/productos"
-          className={cn(buttonVariants({ size: "lg" }), "mt-6")}
-        >
-          Ver productos
-        </Link>
-      </div>
-    );
-  }
+  const shipping = useCartStore((s) => s.getShipping());
+  const total = useCartStore((s) => s.getTotal());
 
   return (
-    <div className="mx-auto max-w-lg rounded-2xl border border-border bg-card p-6">
+    <div className="rounded-2xl border border-border bg-card p-6">
       <h2 className="font-serif text-xl font-semibold text-brand-ink">
         Tu orden
       </h2>
@@ -63,21 +45,29 @@ export function CheckoutSummary() {
         ))}
       </ul>
 
-      <div className="mt-4 flex justify-between border-t border-border pt-4">
-        <span className="font-medium text-brand-ink">Subtotal</span>
-        <span className="font-semibold text-brand-ink">
-          {formatPrice(subtotal)}
-        </span>
+      <div className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
+        <div className="flex justify-between">
+          <span className="text-muted-foreground">Subtotal</span>
+          <span className="font-medium">{formatPrice(subtotal)}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-muted-foreground">Envío</span>
+          <span className="font-medium">
+            {shipping === 0 ? (
+              <span className="text-brand-sage">Gratis</span>
+            ) : (
+              formatPrice(shipping)
+            )}
+          </span>
+        </div>
       </div>
 
-      <CheckoutButton className="mt-6" />
-
-      <Link
-        href="/carrito"
-        className="mt-3 block text-center text-sm text-muted-foreground hover:text-brand-gold"
-      >
-        Volver al carrito
-      </Link>
+      <div className="mt-3 flex justify-between border-t border-border pt-3">
+        <span className="font-medium text-brand-ink">Total</span>
+        <span className="font-semibold text-brand-ink">
+          {formatPrice(total)}
+        </span>
+      </div>
     </div>
   );
 }

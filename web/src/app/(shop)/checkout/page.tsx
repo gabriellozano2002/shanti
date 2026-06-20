@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CheckoutSummary } from "@/components/cart/CheckoutSummary";
+import { CheckoutForm } from "@/components/cart/CheckoutForm";
 
 export const metadata: Metadata = {
   title: "Finalizar compra",
@@ -14,11 +14,11 @@ export default function CheckoutPage() {
           Finalizar compra
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Revisa tu orden antes de continuar al pago seguro.
+          Ingresa tus datos de envío. El pago lo procesa Stripe de forma segura.
         </p>
       </div>
-      <div className="mt-10">
-        <CheckoutSummary />
+      <div className="mx-auto mt-10 max-w-4xl">
+        <CheckoutForm />
       </div>
     </div>
   );

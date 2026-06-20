@@ -15,6 +15,7 @@ import {
   removeFromCart,
   setItemQuantity,
 } from "@/lib/cart";
+import { calculateShippingAmount } from "@/lib/checkout";
 
 interface CartState {
   items: CartItem[];
@@ -24,6 +25,10 @@ interface CartState {
   clear: () => void;
   getItemCount: () => number;
   getSubtotal: () => number;
+  /** Costo de envío en centavos según el subtotal (misma regla que Stripe). */
+  getShipping: () => number;
+  /** Total a pagar en centavos: subtotal + envío. */
+  getTotal: () => number;
 }
 
 export const useCartStore = create<CartState>()(
@@ -41,6 +46,11 @@ export const useCartStore = create<CartState>()(
       clear: () => set({ items: [] }),
       getItemCount: () => cartItemCount(get().items),
       getSubtotal: () => cartSubtotal(get().items),
+      getShipping: () => calculateShippingAmount(cartSubtotal(get().items)),
+      getTotal: () => {
+        const subtotal = cartSubtotal(get().items);
+        return subtotal + calculateShippingAmount(subtotal);
+      },
     }),
     {
       name: "shanti-cart",

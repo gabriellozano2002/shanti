@@ -38,7 +38,15 @@ export async function POST(req: Request) {
     case "checkout.session.completed": {
       const session = event.data.object as Stripe.Checkout.Session;
       // ✅ AQUÍ (y solo aquí) el pago es real.
-      console.log("[webhook] pago completado, sesión:", session.id);
+      // Datos del pedido: los guardamos en metadata al crear la sesión, así que
+      // se ven aquí (Vercel logs) y en el Dashboard de Stripe (sección Metadata).
+      console.log("[webhook] pago completado, sesión:", session.id, {
+        nombre: session.metadata?.cliente,
+        email: session.customer_details?.email,
+        telefono: session.metadata?.telefono,
+        direccion: session.metadata?.direccion,
+        total: session.amount_total, // incluye el envío, en centavos
+      });
       // TODO: registrar la orden en DB, reducir stock y enviar correo de confirmación.
       break;
     }

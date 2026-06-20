@@ -13,6 +13,8 @@ export function CartView() {
   const [mounted, setMounted] = useState(false);
   const items = useCartStore((s) => s.items);
   const subtotal = useCartStore((s) => s.getSubtotal());
+  const shipping = useCartStore((s) => s.getShipping());
+  const total = useCartStore((s) => s.getTotal());
   const setQuantity = useCartStore((s) => s.setQuantity);
   const removeItem = useCartStore((s) => s.removeItem);
 
@@ -118,9 +120,27 @@ export function CartView() {
           <span className="text-muted-foreground">Subtotal</span>
           <span className="font-medium">{formatPrice(subtotal)}</span>
         </div>
-        <p className="mt-1 text-xs text-muted-foreground">
-          El envío se calcula en el siguiente paso.
-        </p>
+        <div className="mt-2 flex justify-between text-sm">
+          <span className="text-muted-foreground">Envío</span>
+          <span className="font-medium">
+            {shipping === 0 ? (
+              <span className="text-brand-sage">Gratis</span>
+            ) : (
+              formatPrice(shipping)
+            )}
+          </span>
+        </div>
+        {shipping > 0 && (
+          <p className="mt-1 text-xs text-muted-foreground">
+            ¡Envío gratis en compras mayores a {formatPrice(150000)}!
+          </p>
+        )}
+        <div className="mt-4 flex justify-between border-t border-border pt-4">
+          <span className="font-medium text-brand-ink">Total</span>
+          <span className="font-semibold text-brand-ink">
+            {formatPrice(total)}
+          </span>
+        </div>
         <Link
           href="/checkout"
           className={cn(buttonVariants({ size: "lg" }), "mt-6 w-full")}

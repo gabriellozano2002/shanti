@@ -52,3 +52,32 @@ export interface CheckoutRequestItem {
   id: string;
   quantity: number;
 }
+
+/**
+ * Datos de contacto y envío que captura nuestro formulario ANTES de Stripe.
+ * El servidor los valida y se los adjunta a la sesión de pago; Stripe ya no
+ * vuelve a pedir dirección. Campos pensados para México.
+ */
+export interface CheckoutCustomer {
+  name: string;
+  email: string;
+  /** Teléfono (idealmente WhatsApp), 10 dígitos. */
+  phone: string;
+  /** Calle y número exterior/interior. → Stripe address.line1 */
+  street: string;
+  /** Colonia. → parte de Stripe address.line2 */
+  neighborhood: string;
+  /** Código postal de 5 dígitos. */
+  postalCode: string;
+  city: string;
+  /** Estado de México (ver MX_STATES en constants). */
+  state: string;
+  /** Referencias / entre calles (opcional). */
+  notes?: string;
+}
+
+/** Cuerpo completo del POST /api/checkout. */
+export interface CheckoutRequest {
+  items: CheckoutRequestItem[];
+  customer: CheckoutCustomer;
+}
