@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { CartToast } from "@/components/cart/CartToast";
 import { SITE } from "@/lib/constants";
 
 const serif = Cormorant_Garamond({
@@ -46,6 +47,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <CartToast />
       </body>
     </html>
   );

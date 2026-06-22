@@ -89,11 +89,18 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(12px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        // Rebote sutil del contador del carrito cuando cambia la cantidad.
+        "cart-pop": {
+          "0%": { transform: "scale(1)" },
+          "40%": { transform: "scale(1.3)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out both",
+        "cart-pop": "cart-pop 0.3s ease-out",
       },
     },
   },
