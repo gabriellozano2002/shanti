@@ -11,7 +11,7 @@ import type { CollectionId } from "@/types";
 export const metadata: Metadata = {
   title: "Tienda",
   description:
-    "Descubre nuestros aceites esenciales 100% naturales. Colección Calma disponible.",
+    "Descubre nuestros aceites esenciales 100% naturales: Colecciones Calma, Alegría y Respira Profundo.",
 };
 
 export default async function ProductosPage({

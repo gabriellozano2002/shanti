@@ -21,7 +21,7 @@ export function Hero() {
               href="/productos"
               className={cn(buttonVariants({ size: "lg" }))}
             >
-              Descubrir la colección
+              Descubrir las colecciones
             </Link>
             <Link
               href="/nosotros"

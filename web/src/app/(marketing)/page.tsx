@@ -1,22 +1,32 @@
 import { Hero } from "@/components/home/Hero";
 import { Filosofia } from "@/components/home/Filosofia";
 import { Beneficios } from "@/components/home/Beneficios";
-import { ColeccionCalma } from "@/components/home/ColeccionCalma";
+import { Colecciones } from "@/components/home/Colecciones";
 import { Experiencia } from "@/components/home/Experiencia";
 import { Testimonios } from "@/components/home/Testimonios";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
 import { Newsletter } from "@/components/home/Newsletter";
-import { getProductsByCollection } from "@/data/products";
+import {
+  getAvailableCollections,
+  getProductsByCollection,
+} from "@/data/products";
 
 export default async function HomePage() {
-  const calma = await getProductsByCollection("calma");
+  // Destaca TODAS las colecciones disponibles por igual.
+  const collections = await getAvailableCollections();
+  const sections = await Promise.all(
+    collections.map(async (collection) => ({
+      collection,
+      products: await getProductsByCollection(collection.id),
+    })),
+  );
 
   return (
     <>
       <Hero />
       <Filosofia />
       <Beneficios />
-      <ColeccionCalma products={calma} />
+      <Colecciones sections={sections} />
       <Experiencia />
       <Testimonios />
       <InstagramFeed />
