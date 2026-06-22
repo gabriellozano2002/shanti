@@ -19,6 +19,7 @@ export function CartView() {
   const total = useCartStore((s) => s.getTotal());
   const setQuantity = useCartStore((s) => s.setQuantity);
   const removeItem = useCartStore((s) => s.removeItem);
+  const clear = useCartStore((s) => s.clear);
 
   // El store está persistido: esperamos al montaje para evitar mismatch de hidratación.
   useEffect(() => setMounted(true), []);
@@ -150,6 +151,12 @@ export function CartView() {
           )}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            // Vacía el carrito tras abrir WhatsApp. El setTimeout deja que el
+            // navegador navegue primero (si no, React desmonta el enlace antes
+            // de abrir la pestaña). Así el cliente puede volver a comprar.
+            setTimeout(() => clear(), 0);
+          }}
           className={cn(
             buttonVariants({ size: "lg" }),
             "mt-6 w-full bg-[#25D366] text-white hover:bg-[#1ebe5d]",
