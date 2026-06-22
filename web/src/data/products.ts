@@ -32,6 +32,22 @@ export const COLLECTIONS: Collection[] = [
       "Aromas frescos y balsámicos que abren el pecho, despejan las vías y purifican el ambiente. Para respirar hondo y sentir la mente más clara.",
     available: true,
   },
+  {
+    id: "energia",
+    name: "Colección Energía",
+    tagline: "Vitalidad, enfoque y renovación",
+    description:
+      "Aromas frescos y especiados que despiertan el cuerpo, aclaran la mente y encienden tu energía. Para los días que piden impulso y enfoque.",
+    available: true,
+  },
+  {
+    id: "espiritualidad",
+    name: "Colección Espiritualidad",
+    tagline: "Conecta con tu esencia y vive en armonía",
+    description:
+      "Aromas profundos y ceremoniales que acompañan la meditación, purifican el espacio y elevan el ánimo. Para tus rituales de conexión y calma interior.",
+    available: true,
+  },
 ];
 
 const products: Product[] = [
@@ -284,6 +300,165 @@ const products: Product[] = [
       "Añade 3–5 gotas en tu difusor, especialmente en temporada de frío. También en vahos con agua caliente.",
     ingredients:
       "Mezcla sinérgica de aceites esenciales puros formulada para la respiración.",
+    inStock: true,
+    size: "10 ml",
+  },
+
+  // ── Colección Energía ─────────────────────────────────────────────────────
+  {
+    id: "energia-limon",
+    slug: "aceite-esencial-limon",
+    name: "Aceite Esencial de Limón",
+    shortDescription: "Frescura que despeja y enfoca.",
+    description:
+      "Fresco, limpio y chispeante, el limón es energía pura. Su aroma cítrico despeja la mente, aporta enfoque y renueva el ambiente con una sensación de claridad inmediata.",
+    price: 38000,
+    currency: "MXN",
+    images: ["/images/products/esencia-limon-energia.png"],
+    collection: "energia",
+    benefits: [
+      "Despeja la mente y aporta enfoque",
+      "Aroma cítrico fresco y energizante",
+      "Renueva y purifica el ambiente",
+    ],
+    howToUse:
+      "Difunde 3–5 gotas para revitalizar el espacio. Si la aplicas en piel diluida, evita la exposición solar directa después (es fotosensible).",
+    ingredients: "100% aceite esencial puro de limón (Citrus limon).",
+    inStock: true,
+    size: "10 ml",
+  },
+  {
+    id: "energia-romero",
+    slug: "aceite-esencial-romero",
+    name: "Aceite Esencial de Romero",
+    shortDescription: "Despierta la mente y el enfoque.",
+    description:
+      "Herbal y estimulante, el romero es el aliado de la concentración. Su aroma despierta la mente, favorece el enfoque y aporta una sensación de vitalidad.",
+    price: 38000,
+    currency: "MXN",
+    images: ["/images/products/esencia-romero-energia.png"],
+    collection: "energia",
+    benefits: [
+      "Favorece la concentración y el enfoque",
+      "Despierta y revitaliza la mente",
+      "Aroma herbal estimulante",
+    ],
+    howToUse:
+      "Difunde 3–4 gotas mientras estudias o trabajas. Diluye antes de aplicar en piel; evítalo durante el embarazo.",
+    ingredients: "100% aceite esencial puro de romero (Rosmarinus officinalis).",
+    inStock: true,
+    size: "10 ml",
+  },
+  {
+    id: "energia-jengibre",
+    slug: "aceite-esencial-jengibre",
+    name: "Aceite Esencial de Jengibre",
+    shortDescription: "Calidez especiada que vigoriza.",
+    description:
+      "Cálido, especiado y vigorizante, el jengibre enciende la energía. Su aroma reconfortante anima el cuerpo y aporta una sensación de fuerza y motivación.",
+    price: 56000,
+    currency: "MXN",
+    images: ["/images/products/esencia-jengibre-energia.png"],
+    collection: "energia",
+    benefits: [
+      "Aporta calidez y vigor",
+      "Anima y motiva",
+      "Aroma especiado reconfortante",
+    ],
+    howToUse:
+      "Difunde 2–3 gotas (es un aroma intenso). Diluye bien antes de aplicar en piel.",
+    ingredients: "100% aceite esencial puro de jengibre (Zingiber officinale).",
+    inStock: true,
+    size: "10 ml",
+  },
+  {
+    id: "energia-vitalidad",
+    slug: "sinergia-vitalidad",
+    name: "Vitalidad — Sinergia Energizante",
+    shortDescription: "Sinergia que enciende tu día.",
+    description:
+      "Vitalidad es una sinergia creada para encender tu día. Combina aceites cítricos y especiados que renuevan la energía, despiertan la mente y te ponen en movimiento.",
+    price: 43000,
+    currency: "MXN",
+    images: ["/images/products/esencia-vitalidad-energia.png"],
+    collection: "energia",
+    benefits: [
+      "Renueva la energía",
+      "Despierta y enfoca la mente",
+      "Aroma vibrante y motivador",
+    ],
+    howToUse:
+      "Añade 3–5 gotas en tu difusor por la mañana o cuando necesites un impulso. También en vahos con agua caliente.",
+    ingredients:
+      "Mezcla sinérgica de aceites esenciales puros formulada para la energía y el enfoque.",
+    inStock: true,
+    size: "10 ml",
+  },
+
+  // ── Colección Espiritualidad ──────────────────────────────────────────────
+  {
+    id: "espiritualidad-incienso",
+    slug: "aceite-esencial-incienso",
+    name: "Aceite Esencial de Incienso",
+    shortDescription: "El aroma de lo sagrado.",
+    description:
+      "Resinoso, profundo y envolvente, el incienso es el aroma de lo sagrado. Acompaña la meditación, serena la mente y crea un espacio de introspección y calma.",
+    price: 78000,
+    currency: "MXN",
+    images: ["/images/products/esencia-incienso-espiritualidad.png"],
+    collection: "espiritualidad",
+    benefits: [
+      "Favorece la meditación y la introspección",
+      "Serena la mente",
+      "Aroma resinoso y envolvente",
+    ],
+    howToUse:
+      "Difunde 3–4 gotas durante tu meditación o ritual. Diluye antes de aplicar en piel.",
+    ingredients: "100% aceite esencial puro de incienso (Boswellia carterii).",
+    inStock: true,
+    size: "10 ml",
+  },
+  {
+    id: "espiritualidad-sandalo",
+    slug: "aceite-esencial-sandalo",
+    name: "Aceite Esencial de Sándalo",
+    shortDescription: "Calma amaderada para conectar.",
+    description:
+      "Amaderado, cálido y sereno, el sándalo invita al recogimiento. Su aroma profundo equilibra las emociones y acompaña los momentos de conexión y quietud.",
+    price: 54000,
+    currency: "MXN",
+    images: ["/images/products/esencia-sandalo-espiritualidad.png"],
+    collection: "espiritualidad",
+    benefits: [
+      "Equilibra las emociones",
+      "Favorece la calma y la conexión",
+      "Aroma amaderado y cálido",
+    ],
+    howToUse:
+      "Difunde 3–4 gotas para crear un ambiente sereno, ideal para meditar. Diluye antes de aplicar en piel.",
+    ingredients: "100% aceite esencial puro de sándalo (Santalum album).",
+    inStock: true,
+    size: "10 ml",
+  },
+  {
+    id: "espiritualidad-palo-santo",
+    slug: "aceite-esencial-palo-santo",
+    name: "Aceite Esencial de Palo Santo",
+    shortDescription: "Purifica y eleva el espacio.",
+    description:
+      "Dulce, amaderado y ceremonial, el palo santo purifica y eleva. Su aroma limpia el ambiente y prepara el espacio para la calma, la intención y la armonía.",
+    price: 78000,
+    currency: "MXN",
+    images: ["/images/products/esencia-palo-santo-espiritualidad.png"],
+    collection: "espiritualidad",
+    benefits: [
+      "Purifica y limpia el ambiente",
+      "Eleva el ánimo y la intención",
+      "Aroma dulce y ceremonial",
+    ],
+    howToUse:
+      "Difunde 3–4 gotas para limpiar y armonizar el espacio. Diluye antes de aplicar en piel.",
+    ingredients: "100% aceite esencial puro de palo santo (Bursera graveolens).",
     inStock: true,
     size: "10 ml",
   },

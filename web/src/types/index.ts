@@ -3,7 +3,12 @@
  * Ver reglas en .claude/rules/productos.md
  */
 
-export type CollectionId = "calma" | "alegria" | "respira-profundo";
+export type CollectionId =
+  | "calma"
+  | "alegria"
+  | "respira-profundo"
+  | "energia"
+  | "espiritualidad";
 
 export interface Collection {
   id: CollectionId;
