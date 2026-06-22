@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Minus, Plus, Trash2 } from "lucide-react";
+import { MessageCircle, Minus, Plus, Trash2 } from "lucide-react";
 import { useCartStore } from "@/store/cart-store";
 import { buttonVariants } from "@/components/ui/button";
-import { cn, formatPrice } from "@/lib/utils";
+import { CONTACT } from "@/lib/constants";
+import { buildWhatsAppOrderMessage } from "@/lib/whatsapp-order";
+import { cn, formatPrice, whatsappUrl } from "@/lib/utils";
 
 /** Vista completa del carrito (página /carrito). Cliente: lee el store. */
 export function CartView() {
@@ -141,12 +143,24 @@ export function CartView() {
             {formatPrice(total)}
           </span>
         </div>
-        <Link
-          href="/checkout"
-          className={cn(buttonVariants({ size: "lg" }), "mt-6 w-full")}
+        <a
+          href={whatsappUrl(
+            CONTACT.whatsapp,
+            buildWhatsAppOrderMessage(items, subtotal, shipping, total),
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "mt-6 w-full bg-[#25D366] text-white hover:bg-[#1ebe5d]",
+          )}
         >
-          Continuar
-        </Link>
+          <MessageCircle className="h-5 w-5" />
+          Pedir por WhatsApp
+        </a>
+        <p className="mt-3 text-center text-xs text-muted-foreground">
+          Te enviamos a WhatsApp con tu pedido listo para confirmar.
+        </p>
         <Link
           href="/productos"
           className="mt-3 block text-center text-sm text-muted-foreground hover:text-brand-gold"
