@@ -120,6 +120,7 @@ const products: Product[] = [
       "100% aceite esencial puro de manzanilla (Matricaria chamomilla).",
     inStock: true,
     featured: true,
+    noble: true,
     size: "10 ml",
   },
 
@@ -369,6 +370,7 @@ const products: Product[] = [
       "Difunde 2–3 gotas (es un aroma intenso). Diluye bien antes de aplicar en piel.",
     ingredients: "100% aceite esencial puro de jengibre (Zingiber officinale).",
     inStock: true,
+    noble: true,
     size: "10 ml",
   },
   {
@@ -416,6 +418,7 @@ const products: Product[] = [
       "Difunde 3–4 gotas durante tu meditación o ritual. Diluye antes de aplicar en piel.",
     ingredients: "100% aceite esencial puro de incienso (Boswellia carterii).",
     inStock: true,
+    noble: true,
     size: "10 ml",
   },
   {
@@ -438,6 +441,7 @@ const products: Product[] = [
       "Difunde 3–4 gotas para crear un ambiente sereno, ideal para meditar. Diluye antes de aplicar en piel.",
     ingredients: "100% aceite esencial puro de sándalo (Santalum album).",
     inStock: true,
+    noble: true,
     size: "10 ml",
   },
   {
@@ -460,6 +464,7 @@ const products: Product[] = [
       "Difunde 3–4 gotas para limpiar y armonizar el espacio. Diluye antes de aplicar en piel.",
     ingredients: "100% aceite esencial puro de palo santo (Bursera graveolens).",
     inStock: true,
+    noble: true,
     size: "10 ml",
   },
 ];

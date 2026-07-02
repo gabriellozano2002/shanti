@@ -38,6 +38,8 @@ export interface Product {
   ingredients: string;
   inStock: boolean;
   featured?: boolean;
+  /** Sello "Esencia Noble": aceites de botánicos raros/preciosos (gama alta). */
+  noble?: boolean;
   /** Ej. "10 ml". */
   size?: string;
 }

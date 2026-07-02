@@ -11,6 +11,7 @@ import {
 } from "@/data/products";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { NobleBadge } from "@/components/product/NobleBadge";
 import { Badge } from "@/components/ui/badge";
 import { formatPrice } from "@/lib/utils";
 
@@ -59,6 +60,9 @@ export default async function ProductPage({
             className="object-cover"
             priority
           />
+          {product.noble && (
+            <NobleBadge className="absolute left-4 top-4 z-10 text-xs" />
+          )}
         </div>
 
         {/* Info */}

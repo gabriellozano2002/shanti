@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatPrice } from "@/lib/utils";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { NobleBadge } from "@/components/product/NobleBadge";
 import type { Product } from "@/types";
 
 /** Tarjeta de producto. Presentación pura: recibe el producto por props. */
@@ -19,6 +20,9 @@ export function ProductCard({ product }: { product: Product }) {
           sizes="(max-width: 768px) 50vw, 25vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        {product.noble && (
+          <NobleBadge className="absolute left-3 top-3 z-10" />
+        )}
       </Link>
       <div className="flex flex-1 flex-col p-4">
         <Link href={`/productos/${product.slug}`}>
